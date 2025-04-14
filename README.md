@@ -50,8 +50,8 @@ This mod addon enhances the Cobblemon experience for Minecraft version: 1.21.1, 
 
 - Ensure you have downloaded the Cobblemon Mod along with this addon.
 - Downloads are available via GitHub releases:
-  - [GitHub Release for NeoForge]()
-  - [GitHub Release for Fabric]()
+  - [GitHub Release for NeoForge](https://github.com/Sreeraj-S/PokemonToItem/releases/tag/0.2.0%2B1.21.1)
+  - [GitHub Release for Fabric](https://github.com/Sreeraj-S/PokemonToItem/releases/tag/0.2.0%2B1.21.1)
 - If you have applied a datapack for alternate Pokémon textures, note that the item containing the Pokémon will inherit its appearance from the datapack.
 - As this is a beta release, anticipate and report bugs. If you find any issues, please create an issue on our GitHub repository.
 
