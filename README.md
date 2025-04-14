@@ -1,7 +1,7 @@
 # PokemonToItem Mod
 **Cobblemon Addon - Pokémon Conversion and Itemization**
 
-This mod addon enhances the Cobblemon experience for Minecraft version: 1.20.1, offering players the exciting ability to convert Pokémon into items and items back into Pokémon using intuitive in-game commands. Seamlessly compatible with both Forge and Fabric platforms, this addon opens up new gameplay possibilities.
+This mod addon enhances the Cobblemon experience for Minecraft version: 1.21.1, offering players the exciting ability to convert Pokémon into items and items back into Pokémon using intuitive in-game commands. Seamlessly compatible with both NeoForge and Fabric platforms, this addon opens up new gameplay possibilities.
 
 ## Features
 
@@ -13,8 +13,8 @@ This mod addon enhances the Cobblemon experience for Minecraft version: 1.20.1, 
 
 ## Installation
 
-**Forge:**
-1. Install Minecraft Forge for version 1.20.1.
+**NeoForge:**
+1. Install Minecraft NeoForge for version 1.20.1.
 2. Download both the Cobblemon Mod and this addon.
 3. Place the downloaded mods into the 'mods' folder within your Minecraft directory.
 4. Launch Minecraft to explore the newly added features.
@@ -50,14 +50,14 @@ This mod addon enhances the Cobblemon experience for Minecraft version: 1.20.1, 
 
 - Ensure you have downloaded the Cobblemon Mod along with this addon.
 - Downloads are available via GitHub releases:
-  - [GitHub Release for Forge](https://github.com/Sreeraj-S/PokemonToItem/releases/tag/0.0.2_BETA_Forge_1.20.1)
-  - [GitHub Release for Fabric](https://github.com/Sreeraj-S/PokemonToItem/releases/tag/0.0.2_BETA_Fabric_1.20.1)
+  - [GitHub Release for NeoForge]()
+  - [GitHub Release for Fabric]()
 - If you have applied a datapack for alternate Pokémon textures, note that the item containing the Pokémon will inherit its appearance from the datapack.
 - As this is a beta release, anticipate and report bugs. If you find any issues, please create an issue on our GitHub repository.
 
 ## Permissions
-- `/poketoitem` permission: `cobblemon.pokemontoitem.command.poketoitem`
-- `/itemtopoke` permission: `cobblemon.pokemontoitem.command.itemtopoke`
+- `/poketoitem` permission: `cobblemon.pokemontoitem.command.poketoitem` or `pokemontoitem.command.poketoitem`
+- `/itemtopoke` permission: `cobblemon.pokemontoitem.command.itemtopoke` or `pokemontoitem.command.itemtopoke`
 
 ## Media Gallery
 Feel free to visit our [Media Gallery](https://modrinth.com/mod/pokemontoitem/gallery) to view screenshots and images showcasing the Pokémon conversion process.
