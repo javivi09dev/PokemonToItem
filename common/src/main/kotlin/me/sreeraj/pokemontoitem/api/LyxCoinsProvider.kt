@@ -21,7 +21,7 @@ object LyxCoinsProvider {
     /**
      * Inicializa la API (llamado internamente por el mod)
      */
-    internal fun initialize() {
+    fun initialize() {
         apiInstance = LyxCoinsAPIImpl()
     }
     
