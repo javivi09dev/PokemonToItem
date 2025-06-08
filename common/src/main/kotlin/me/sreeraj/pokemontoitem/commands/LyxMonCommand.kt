@@ -1,7 +1,7 @@
 package me.sreeraj.pokemontoitem.commands
 
 import com.mojang.brigadier.CommandDispatcher
-import com.mojang.brigadier.arguments.IntegerArgumentType
+import com.mojang.brigadier.arguments.LongArgumentType
 import com.mojang.brigadier.context.CommandContext
 import me.sreeraj.pokemontoitem.PokemonToItem
 import me.sreeraj.pokemontoitem.permissions.PokemonToItemPermissions
@@ -41,7 +41,7 @@ class LyxMonCommand {
                         .then(
                             Commands.argument("player", EntityArgument.player())
                                 .then(
-                                    Commands.argument("amount", IntegerArgumentType.integer(1))
+                                    Commands.argument("amount", LongArgumentType.longArg(1))
                                         .executes { context ->
                                             executeAddCoins(context)
                                         }
@@ -56,7 +56,7 @@ class LyxMonCommand {
                         .then(
                             Commands.argument("player", EntityArgument.player())
                                 .then(
-                                    Commands.argument("amount", IntegerArgumentType.integer(1))
+                                    Commands.argument("amount", LongArgumentType.longArg(1))
                                         .executes { context ->
                                             executeRemoveCoins(context)
                                         }
@@ -115,7 +115,7 @@ class LyxMonCommand {
     private fun executeAddCoins(context: CommandContext<CommandSourceStack>): Int {
         val source = context.source
         val targetPlayer = EntityArgument.getPlayer(context, "player")
-        val amount = IntegerArgumentType.getInteger(context, "amount")
+        val amount = LongArgumentType.getLong(context, "amount")
         
         PlayerDataManager.addCoins(targetPlayer, amount)
         
@@ -159,7 +159,7 @@ class LyxMonCommand {
     private fun executeRemoveCoins(context: CommandContext<CommandSourceStack>): Int {
         val source = context.source
         val targetPlayer = EntityArgument.getPlayer(context, "player")
-        val amount = IntegerArgumentType.getInteger(context, "amount")
+        val amount = LongArgumentType.getLong(context, "amount")
         
         val currentCoins = PlayerDataManager.getCoins(targetPlayer)
         

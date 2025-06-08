@@ -46,7 +46,7 @@ object PokemonBattleEventHandler {
                 val serverPlayer = playerActor.entity as? ServerPlayer
                 
                 if (serverPlayer != null) {
-                    PlayerDataManager.addCoins(serverPlayer, coinsToGive)
+                    PlayerDataManager.addCoins(serverPlayer, coinsToGive.toLong())
                     
                     // Crear mensaje de recompensa
                     val message = Component.literal("⚔️ ¡Has ganado la batalla ")

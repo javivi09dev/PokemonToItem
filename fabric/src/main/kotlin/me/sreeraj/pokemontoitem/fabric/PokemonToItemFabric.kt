@@ -1,6 +1,7 @@
 package me.sreeraj.pokemontoitem.fabric
 
 import me.sreeraj.pokemontoitem.PokemonToItem
+import me.sreeraj.pokemontoitem.api.LyxCoinsProvider
 import me.sreeraj.pokemontoitem.util.PlayerDataManager
 import me.sreeraj.pokemontoitem.util.ScoreboardManager
 import net.fabricmc.api.ModInitializer
@@ -16,6 +17,11 @@ class PokemonToItemFabric : ModInitializer {
     override fun onInitialize() {
         PokemonToItem.getLogger().info("[PokemonToItem] Iniciado")
         PokemonToItem.initialize()
+        
+        // Inicializar la API pública de LyxCoins
+        LyxCoinsProvider.initialize()
+        PokemonToItem.getLogger().info("[PokemonToItem] API de LyxCoins inicializada - versión ${LyxCoinsProvider.getAPIVersion()}")
+        
         CommandRegistrationCallback.EVENT.register { dispatcher, _, _ ->
             PokemonToItem.registerCommands(dispatcher)
         }

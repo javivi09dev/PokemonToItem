@@ -41,7 +41,7 @@ object PokemonCaptureEventHandler {
         }
         
         // Otorgar las monedas
-        PlayerDataManager.addCoins(player, coinsToGive)
+        PlayerDataManager.addCoins(player, coinsToGive.toLong())
         
         // Crear mensaje de recompensa
         val baseMessage = Component.literal("💰 ¡Has capturado a ")

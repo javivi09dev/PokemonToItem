@@ -66,14 +66,15 @@ object PlayerDataManager {
         playerData.keys.forEach { savePlayerData(it) }
     }
     
-    fun addCoins(player: ServerPlayer, amount: Int) {
+    // Métodos con ServerPlayer
+    fun addCoins(player: ServerPlayer, amount: Long) {
         val data = getPlayerData(player)
         data.coins += amount
         savePlayerData(player.uuid)
         PokemonToItem.getLogger().info("${player.name.string} recibió $amount monedas LyxMon. Total: ${data.coins}")
     }
     
-    fun removeCoins(player: ServerPlayer, amount: Int): Boolean {
+    fun removeCoins(player: ServerPlayer, amount: Long): Boolean {
         val data = getPlayerData(player)
         if (data.coins >= amount) {
             data.coins -= amount
@@ -83,11 +84,47 @@ object PlayerDataManager {
         return false
     }
     
-    fun getCoins(player: ServerPlayer): Int {
+    fun setCoins(player: ServerPlayer, amount: Long) {
+        val data = getPlayerData(player)
+        data.coins = amount
+        savePlayerData(player.uuid)
+        PokemonToItem.getLogger().info("${player.name.string} ahora tiene $amount monedas LyxMon")
+    }
+    
+    fun getCoins(player: ServerPlayer): Long {
         return getPlayerData(player).coins
+    }
+    
+    // Métodos con UUID
+    fun addCoins(playerId: UUID, amount: Long) {
+        val data = getPlayerData(playerId)
+        data.coins += amount
+        savePlayerData(playerId)
+        PokemonToItem.getLogger().info("Jugador $playerId recibió $amount monedas LyxMon. Total: ${data.coins}")
+    }
+    
+    fun removeCoins(playerId: UUID, amount: Long): Boolean {
+        val data = getPlayerData(playerId)
+        if (data.coins >= amount) {
+            data.coins -= amount
+            savePlayerData(playerId)
+            return true
+        }
+        return false
+    }
+    
+    fun setCoins(playerId: UUID, amount: Long) {
+        val data = getPlayerData(playerId)
+        data.coins = amount
+        savePlayerData(playerId)
+        PokemonToItem.getLogger().info("Jugador $playerId ahora tiene $amount monedas LyxMon")
+    }
+    
+    fun getCoins(playerId: UUID): Long {
+        return getPlayerData(playerId).coins
     }
 }
 
 data class PlayerData(
-    var coins: Int = 0
+    var coins: Long = 0
 ) 

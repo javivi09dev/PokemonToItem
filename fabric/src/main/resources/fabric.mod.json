@@ -5,7 +5,8 @@
   "name": "PokemonToItem",
   "description": "Helps In Converting Pokemon To an Item and vis-versa",
   "authors": [
-    "Sreeraj S"
+    "Sreeraj S",
+    "Javivi"
   ],
   "contact": {
     "sources": "https://github.com/Sreeraj-S/PokemonToItem",
