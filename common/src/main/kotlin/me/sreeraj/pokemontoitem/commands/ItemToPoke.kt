@@ -46,18 +46,18 @@ class ItemToPoke {
                 val added = party.add(pokemon)
                 if(added){
                     player.setItemInHand(InteractionHand.MAIN_HAND, ItemStack.EMPTY)
-                    player.displayClientMessage(Component.literal("[§2§lItemToPoke§f] §a§lPokémon restored to your party or PC!"), false)
+                    player.displayClientMessage(Component.literal("[§2§lLyxMon§f] §a§lPokémon restaurado en tu party o PC!"), false)
                 }else {
                     player.displayClientMessage(
-                        Component.literal("[§2§lItemToPoke§f] §a§lPokémon failed to restore!"),
+                        Component.literal("[§2§lLyxMon§f] §a§lPokémon falló al restaurar!"),
                         false
                     )
                 }
             } else {
-                player.displayClientMessage(Component.literal("[§2§lItemToPoke§f] §4§lThis item does not contain a Pokémon."), false)
+                player.displayClientMessage(Component.literal("[§2§lLyxMon§f] §4§lEste item no contiene un Pokémon."), false)
             }
         } else {
-            player.displayClientMessage(Component.literal("[§2§lItemToPoke§f] §4§lNo Pokémon data found on this item."), false)
+            player.displayClientMessage(Component.literal("[§2§lLyxMon§f] §4§lNo se encontró datos de Pokémon en este item."), false)
         }
 
         return 1

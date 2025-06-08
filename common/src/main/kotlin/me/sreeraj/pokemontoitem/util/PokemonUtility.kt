@@ -23,16 +23,16 @@ object PokemonUtility {
         statsHoverText.append(pokemon.species.translatedName.copy().withStyle(Style.EMPTY.withColor(ChatFormatting.DARK_GREEN).withUnderlined(true)))
         statsHoverText.append(Component.literal("\n"))
         if (pokemon.nickname != null) {
-            statsHoverText.append(Component.literal("Nickname: ").withStyle(ChatFormatting.GRAY).append(Component.literal(pokemon.nickname!!.string).withStyle(ChatFormatting.WHITE)))
+            statsHoverText.append(Component.literal("Apodo: ").withStyle(ChatFormatting.GRAY).append(Component.literal(pokemon.nickname!!.string).withStyle(ChatFormatting.WHITE)))
             statsHoverText.append(Component.literal("\n"))
         }
-        statsHoverText.append(Component.literal("Level: ").withStyle(ChatFormatting.AQUA).append(Component.literal(pokemon.level.toString()).withStyle(ChatFormatting.WHITE)))
+        statsHoverText.append(Component.literal("Nivel: ").withStyle(ChatFormatting.AQUA).append(Component.literal(pokemon.level.toString()).withStyle(ChatFormatting.WHITE)))
         statsHoverText.append(Component.literal("\n"))
-        statsHoverText.append(Component.literal("Nature: ").withStyle(ChatFormatting.YELLOW).append(lang(pokemon.nature.displayName.replace("cobblemon.", "")).withStyle(ChatFormatting.WHITE)))
+        statsHoverText.append(Component.literal("Naturaleza: ").withStyle(ChatFormatting.YELLOW).append(lang(pokemon.nature.displayName.replace("cobblemon.", "")).withStyle(ChatFormatting.WHITE)))
         statsHoverText.append(Component.literal("\n"))
-        statsHoverText.append(Component.literal("Ability: ").withStyle(ChatFormatting.GOLD).append(lang(pokemon.ability.displayName.replace("cobblemon.", "")).withStyle(ChatFormatting.WHITE)))
+        statsHoverText.append(Component.literal("Habilidad: ").withStyle(ChatFormatting.GOLD).append(lang(pokemon.ability.displayName.replace("cobblemon.", "")).withStyle(ChatFormatting.WHITE)))
         statsHoverText.append(Component.literal("\n"))
-        statsHoverText.append(Component.literal("Form: ").withStyle(ChatFormatting.GREEN).append(Component.literal(pokemon.form.name).withStyle(ChatFormatting.WHITE)))
+        statsHoverText.append(Component.literal("Forma: ").withStyle(ChatFormatting.GREEN).append(Component.literal(pokemon.form.name).withStyle(ChatFormatting.WHITE)))
 
         val statsText = Component.literal("[Stats]").withStyle(Style.EMPTY.withColor(ChatFormatting.RED)
                 .withHoverEvent(HoverEvent(HoverEvent.Action.SHOW_TEXT, statsHoverText)))
@@ -48,17 +48,17 @@ object PokemonUtility {
         val evsHoverText = Component.literal("").withStyle(Style.EMPTY)
         evsHoverText.append(Component.literal("EVs ($evPercent%) ").withStyle(Style.EMPTY.withColor(ChatFormatting.GOLD).withUnderlined(Boolean.TRUE)))
         evsHoverText.append(Component.literal("\n").withStyle(Style.EMPTY.withUnderlined(false)))
-        evsHoverText.append(Component.literal("HP: ").withStyle(ChatFormatting.RED).append(Component.literal(pokemon.evs.getOrDefault(Stats.HP).toString()).withStyle(ChatFormatting.WHITE)))
+        evsHoverText.append(Component.literal("PS: ").withStyle(ChatFormatting.RED).append(Component.literal(pokemon.evs.getOrDefault(Stats.HP).toString()).withStyle(ChatFormatting.WHITE)))
         evsHoverText.append(Component.literal("\n"))
-        evsHoverText.append(Component.literal("Attack: ").withStyle(ChatFormatting.BLUE).append(Component.literal(pokemon.evs.getOrDefault(Stats.ATTACK).toString()).withStyle(ChatFormatting.WHITE)))
+        evsHoverText.append(Component.literal("Ataque: ").withStyle(ChatFormatting.BLUE).append(Component.literal(pokemon.evs.getOrDefault(Stats.ATTACK).toString()).withStyle(ChatFormatting.WHITE)))
         evsHoverText.append(Component.literal("\n"))
         evsHoverText.append(Component.literal("Defense: ").withStyle(ChatFormatting.GRAY).append(Component.literal(pokemon.evs.getOrDefault(Stats.DEFENCE).toString()).withStyle(ChatFormatting.WHITE)))
         evsHoverText.append(Component.literal("\n"))
-        evsHoverText.append(Component.literal("Sp. Attack: ").withStyle(ChatFormatting.AQUA).append(Component.literal(pokemon.evs.getOrDefault(Stats.SPECIAL_ATTACK).toString()).withStyle(ChatFormatting.WHITE)))
+        evsHoverText.append(Component.literal("Ataque Especial: ").withStyle(ChatFormatting.AQUA).append(Component.literal(pokemon.evs.getOrDefault(Stats.SPECIAL_ATTACK).toString()).withStyle(ChatFormatting.WHITE)))
         evsHoverText.append(Component.literal("\n"))
-        evsHoverText.append(Component.literal("Sp. Defense: ").withStyle(ChatFormatting.YELLOW).append(Component.literal(pokemon.evs.getOrDefault(Stats.SPECIAL_DEFENCE).toString()).withStyle(ChatFormatting.WHITE)))
+        evsHoverText.append(Component.literal("Defensa Especial: ").withStyle(ChatFormatting.YELLOW).append(Component.literal(pokemon.evs.getOrDefault(Stats.SPECIAL_DEFENCE).toString()).withStyle(ChatFormatting.WHITE)))
         evsHoverText.append(Component.literal("\n"))
-        evsHoverText.append(Component.literal("Speed: ").withStyle(ChatFormatting.GREEN).append(Component.literal(pokemon.evs.getOrDefault(Stats.SPEED).toString()).withStyle(ChatFormatting.WHITE)))
+        evsHoverText.append(Component.literal("Velocidad: ").withStyle(ChatFormatting.GREEN).append(Component.literal(pokemon.evs.getOrDefault(Stats.SPEED).toString()).withStyle(ChatFormatting.WHITE)))
         evsText.setStyle(evsText.style.withHoverEvent(
                 HoverEvent(HoverEvent.Action.SHOW_TEXT,
                         evsHoverText
@@ -75,17 +75,17 @@ object PokemonUtility {
         val ivsHoverText = Component.literal("").withStyle(Style.EMPTY)
         ivsHoverText.append(Component.literal("IVs ($ivPercent%)").withStyle(Style.EMPTY.withColor(ChatFormatting.LIGHT_PURPLE).withUnderlined(true)))
         ivsHoverText.append(Component.literal("\n").withStyle(Style.EMPTY.withUnderlined(false)))
-        ivsHoverText.append(Component.literal("HP: ").withStyle(ChatFormatting.RED).append(Component.literal(pokemon.ivs.getOrDefault(Stats.HP).toString()).withStyle(ChatFormatting.WHITE)))
+        ivsHoverText.append(Component.literal("PS: ").withStyle(ChatFormatting.RED).append(Component.literal(pokemon.ivs.getOrDefault(Stats.HP).toString()).withStyle(ChatFormatting.WHITE)))
         ivsHoverText.append(Component.literal("\n"))
-        ivsHoverText.append(Component.literal("Attack: ").withStyle(ChatFormatting.BLUE).append(Component.literal(pokemon.ivs.getOrDefault(Stats.ATTACK).toString()).withStyle(ChatFormatting.WHITE)))
+        ivsHoverText.append(Component.literal("Ataque: ").withStyle(ChatFormatting.BLUE).append(Component.literal(pokemon.ivs.getOrDefault(Stats.ATTACK).toString()).withStyle(ChatFormatting.WHITE)))
         ivsHoverText.append(Component.literal("\n"))
-        ivsHoverText.append(Component.literal("Defense: ").withStyle(ChatFormatting.GRAY).append(Component.literal(pokemon.ivs.getOrDefault(Stats.DEFENCE).toString()).withStyle(ChatFormatting.WHITE)))
+        ivsHoverText.append(Component.literal("Defensa: ").withStyle(ChatFormatting.GRAY).append(Component.literal(pokemon.ivs.getOrDefault(Stats.DEFENCE).toString()).withStyle(ChatFormatting.WHITE)))
         ivsHoverText.append(Component.literal("\n"))
-        ivsHoverText.append(Component.literal("Sp. Attack: ").withStyle(ChatFormatting.AQUA).append(Component.literal(pokemon.ivs.getOrDefault(Stats.SPECIAL_ATTACK).toString()).withStyle(ChatFormatting.WHITE)))
+        ivsHoverText.append(Component.literal("Ataque Especial: ").withStyle(ChatFormatting.AQUA).append(Component.literal(pokemon.ivs.getOrDefault(Stats.SPECIAL_ATTACK).toString()).withStyle(ChatFormatting.WHITE)))
         ivsHoverText.append(Component.literal("\n"))
-        ivsHoverText.append(Component.literal("Sp. Defense: ").withStyle(ChatFormatting.YELLOW).append(Component.literal(pokemon.ivs.getOrDefault(Stats.SPECIAL_DEFENCE).toString()).withStyle(ChatFormatting.WHITE)))
+        ivsHoverText.append(Component.literal("Defensa Especial: ").withStyle(ChatFormatting.YELLOW).append(Component.literal(pokemon.ivs.getOrDefault(Stats.SPECIAL_DEFENCE).toString()).withStyle(ChatFormatting.WHITE)))
         ivsHoverText.append(Component.literal("\n"))
-        ivsHoverText.append(Component.literal("Speed: ").withStyle(ChatFormatting.GREEN).append(Component.literal(pokemon.ivs.getOrDefault(Stats.SPEED).toString()).withStyle(ChatFormatting.WHITE)))
+        ivsHoverText.append(Component.literal("Velocidad: ").withStyle(ChatFormatting.GREEN).append(Component.literal(pokemon.ivs.getOrDefault(Stats.SPEED).toString()).withStyle(ChatFormatting.WHITE)))
         ivsText.setStyle(ivsText.style.withHoverEvent(
                 HoverEvent(HoverEvent.Action.SHOW_TEXT,
                         ivsHoverText
@@ -93,21 +93,21 @@ object PokemonUtility {
         )
         toSend.append(ivsText)
 
-        val movesText = Component.literal("[Moves]").withStyle(ChatFormatting.BLUE)
+        val movesText = Component.literal("[Movimientos]").withStyle(ChatFormatting.BLUE)
         val movesHoverText = Component.literal("").withStyle(Style.EMPTY)
-        movesHoverText.append(Component.literal("Moves").withStyle(Style.EMPTY.withColor(ChatFormatting.BLUE).withUnderlined(Boolean.TRUE)))
+        movesHoverText.append(Component.literal("Movimientos").withStyle(Style.EMPTY.withColor(ChatFormatting.BLUE).withUnderlined(Boolean.TRUE)))
         movesHoverText.append(Component.literal("\n").withStyle(Style.EMPTY.withUnderlined(false)))
-        val moveOne = if (pokemon.moveSet.getMoves().size >= 1) pokemon.moveSet[0]!!.displayName.string else "Empty"
-        val moveTwo = if (pokemon.moveSet.getMoves().size >= 2) pokemon.moveSet[1]!!.displayName.string else "Empty"
-        val moveThree = if (pokemon.moveSet.getMoves().size >= 3) pokemon.moveSet[2]!!.displayName.string else "Empty"
-        val moveFour = if (pokemon.moveSet.getMoves().size >= 4) pokemon.moveSet[3]!!.displayName.string else "Empty"
-        movesHoverText.append(Component.literal("Move 1: ").withStyle(ChatFormatting.RED).append(Component.literal(moveOne).withStyle(ChatFormatting.WHITE)))
+        val moveOne = if (pokemon.moveSet.getMoves().size >= 1) pokemon.moveSet[0]!!.displayName.string else "Vacío"
+        val moveTwo = if (pokemon.moveSet.getMoves().size >= 2) pokemon.moveSet[1]!!.displayName.string else "Vacío"
+        val moveThree = if (pokemon.moveSet.getMoves().size >= 3) pokemon.moveSet[2]!!.displayName.string else "Vacío"
+        val moveFour = if (pokemon.moveSet.getMoves().size >= 4) pokemon.moveSet[3]!!.displayName.string else "Vacío"
+        movesHoverText.append(Component.literal("Movimiento 1: ").withStyle(ChatFormatting.RED).append(Component.literal(moveOne).withStyle(ChatFormatting.WHITE)))
         movesHoverText.append(Component.literal("\n"))
-        movesHoverText.append(Component.literal("Move 2: ").withStyle(ChatFormatting.YELLOW).append(Component.literal(moveTwo).withStyle(ChatFormatting.WHITE)))
+        movesHoverText.append(Component.literal("Movimiento 2: ").withStyle(ChatFormatting.YELLOW).append(Component.literal(moveTwo).withStyle(ChatFormatting.WHITE)))
         movesHoverText.append(Component.literal("\n"))
-        movesHoverText.append(Component.literal("Move 3: ").withStyle(ChatFormatting.AQUA).append(Component.literal(moveThree).withStyle(ChatFormatting.WHITE)))
+        movesHoverText.append(Component.literal("Movimiento 3: ").withStyle(ChatFormatting.AQUA).append(Component.literal(moveThree).withStyle(ChatFormatting.WHITE)))
         movesHoverText.append(Component.literal("\n"))
-        movesHoverText.append(Component.literal("Move 4: ").withStyle(ChatFormatting.GREEN).append(Component.literal(moveFour).withStyle(ChatFormatting.WHITE)))
+        movesHoverText.append(Component.literal("Movimiento 4: ").withStyle(ChatFormatting.GREEN).append(Component.literal(moveFour).withStyle(ChatFormatting.WHITE)))
         movesText.setStyle(movesText.style.withHoverEvent(
                 HoverEvent(HoverEvent.Action.SHOW_TEXT,
                         movesHoverText
@@ -119,45 +119,45 @@ object PokemonUtility {
     }
 
     fun pokemonToItem(pokemon: Pokemon): ItemStack {
-        val moveOne = if (pokemon.moveSet.getMoves().size >= 1) pokemon.moveSet[0]!!.displayName.string else "Empty"
-        val moveTwo = if (pokemon.moveSet.getMoves().size >= 2) pokemon.moveSet[1]!!.displayName.string else "Empty"
-        val moveThree = if (pokemon.moveSet.getMoves().size >= 3) pokemon.moveSet[2]!!.displayName.string else "Empty"
-        val moveFour = if (pokemon.moveSet.getMoves().size >= 4) pokemon.moveSet[3]!!.displayName.string else "Empty"
+        val moveOne = if (pokemon.moveSet.getMoves().size >= 1) pokemon.moveSet[0]!!.displayName.string else "Vacío"
+        val moveTwo = if (pokemon.moveSet.getMoves().size >= 2) pokemon.moveSet[1]!!.displayName.string else "Vacío"
+        val moveThree = if (pokemon.moveSet.getMoves().size >= 3) pokemon.moveSet[2]!!.displayName.string else "Vacío"
+        val moveFour = if (pokemon.moveSet.getMoves().size >= 4) pokemon.moveSet[3]!!.displayName.string else "Vacío"
 
 
 
         val itemstack: ItemStack = ItemBuilder(PokemonItem.from(pokemon,1))
                 .hideAdditional()
                 .addLore(arrayOf<Component>(Component.literal(pokemon.caughtBall.item().defaultInstance.displayName.string).setStyle(Style.EMPTY.withItalic(true).withColor(ChatFormatting.DARK_GRAY)),
-                        Component.literal("Level: ").withStyle(ChatFormatting.AQUA).append(Component.literal(pokemon.level.toString()).withStyle(ChatFormatting.WHITE)),
+                        Component.literal("Nivel: ").withStyle(ChatFormatting.AQUA).append(Component.literal(pokemon.level.toString()).withStyle(ChatFormatting.WHITE)),
 
-                        Component.literal("Nickname: ").withStyle(ChatFormatting.DARK_GREEN).append(Component.literal(
-                                pokemon.nickname?.string ?: "No nickname"
+                        Component.literal("Apodo: ").withStyle(ChatFormatting.DARK_GREEN).append(Component.literal(
+                                pokemon.nickname?.string ?: "Sin apodo"
                         ).withStyle(ChatFormatting.WHITE)),
 
-                        Component.literal("Nature: ").withStyle(ChatFormatting.YELLOW).append(lang(pokemon.nature.displayName.replace("cobblemon.", "")).withStyle(ChatFormatting.WHITE)),
-                        Component.literal("Ability: ").withStyle(ChatFormatting.GOLD).append(lang(pokemon.ability.displayName.replace("cobblemon.", "")).withStyle(ChatFormatting.WHITE)),
+                        Component.literal("Naturaleza: ").withStyle(ChatFormatting.YELLOW).append(lang(pokemon.nature.displayName.replace("cobblemon.", "")).withStyle(ChatFormatting.WHITE)),
+                        Component.literal("Habilidad: ").withStyle(ChatFormatting.GOLD).append(lang(pokemon.ability.displayName.replace("cobblemon.", "")).withStyle(ChatFormatting.WHITE)),
                         Component.literal("IVs: ").withStyle(ChatFormatting.LIGHT_PURPLE),
-                        Component.literal("  HP: ").withStyle(ChatFormatting.RED).append(Component.literal(pokemon.ivs.getOrDefault(Stats.HP).toString()).withStyle(ChatFormatting.WHITE))
-                                .append(Component.literal("  Atk: ").withStyle(ChatFormatting.BLUE).append(Component.literal(pokemon.ivs.getOrDefault(Stats.ATTACK).toString()).withStyle(ChatFormatting.WHITE)))
-                                .append(Component.literal("  Def: ").withStyle(ChatFormatting.GRAY).append(Component.literal(pokemon.ivs.getOrDefault(Stats.DEFENCE).toString()).withStyle(ChatFormatting.WHITE))),
-                        Component.literal("  SpAtk: ").withStyle(ChatFormatting.AQUA).append(Component.literal(pokemon.ivs.getOrDefault(Stats.SPECIAL_ATTACK).toString()).withStyle(ChatFormatting.WHITE))
-                                .append(Component.literal("  SpDef: ").withStyle(ChatFormatting.YELLOW).append(Component.literal(pokemon.ivs.getOrDefault(Stats.SPECIAL_DEFENCE).toString()).withStyle(ChatFormatting.WHITE)))
-                                .append(Component.literal("  Spd: ").withStyle(ChatFormatting.GREEN).append(Component.literal(pokemon.ivs.getOrDefault(Stats.SPEED).toString()).withStyle(ChatFormatting.WHITE))),
+                        Component.literal("  PS: ").withStyle(ChatFormatting.RED).append(Component.literal(pokemon.ivs.getOrDefault(Stats.HP).toString()).withStyle(ChatFormatting.WHITE))
+                                .append(Component.literal("  Ataque: ").withStyle(ChatFormatting.BLUE).append(Component.literal(pokemon.ivs.getOrDefault(Stats.ATTACK).toString()).withStyle(ChatFormatting.WHITE)))
+                                .append(Component.literal("  Defensa: ").withStyle(ChatFormatting.GRAY).append(Component.literal(pokemon.ivs.getOrDefault(Stats.DEFENCE).toString()).withStyle(ChatFormatting.WHITE))),
+                        Component.literal("  Ataque Especial: ").withStyle(ChatFormatting.AQUA).append(Component.literal(pokemon.ivs.getOrDefault(Stats.SPECIAL_ATTACK).toString()).withStyle(ChatFormatting.WHITE))
+                                .append(Component.literal("  Defensa Especial: ").withStyle(ChatFormatting.YELLOW).append(Component.literal(pokemon.ivs.getOrDefault(Stats.SPECIAL_DEFENCE).toString()).withStyle(ChatFormatting.WHITE)))
+                                .append(Component.literal("  Velocidad: ").withStyle(ChatFormatting.GREEN).append(Component.literal(pokemon.ivs.getOrDefault(Stats.SPEED).toString()).withStyle(ChatFormatting.WHITE))),
 
                         Component.literal("EVs: ").withStyle(ChatFormatting.DARK_AQUA),
-                        Component.literal("  HP: ").withStyle(ChatFormatting.RED).append(Component.literal(pokemon.evs.getOrDefault(Stats.HP).toString()).withStyle(ChatFormatting.WHITE))
-                                .append(Component.literal("  Atk: ").withStyle(ChatFormatting.BLUE).append(Component.literal(pokemon.evs.getOrDefault(Stats.ATTACK).toString()).withStyle(ChatFormatting.WHITE)))
-                                .append(Component.literal("  Def: ").withStyle(ChatFormatting.GRAY).append(Component.literal(pokemon.evs.getOrDefault(Stats.DEFENCE).toString()).withStyle(ChatFormatting.WHITE))),
-                        Component.literal("  SpAtk: ").withStyle(ChatFormatting.AQUA).append(Component.literal(pokemon.evs.getOrDefault(Stats.SPECIAL_ATTACK).toString()).withStyle(ChatFormatting.WHITE))
-                                .append(Component.literal("  SpDef: ").withStyle(ChatFormatting.YELLOW).append(Component.literal(pokemon.evs.getOrDefault(Stats.SPECIAL_DEFENCE).toString()).withStyle(ChatFormatting.WHITE)))
-                                .append(Component.literal("  Spd: ").withStyle(ChatFormatting.GREEN).append(Component.literal(pokemon.evs.getOrDefault(Stats.SPEED).toString()).withStyle(ChatFormatting.WHITE))),
-                        Component.literal("Moves: ").withStyle(ChatFormatting.DARK_GREEN),
+                        Component.literal("  PS: ").withStyle(ChatFormatting.RED).append(Component.literal(pokemon.evs.getOrDefault(Stats.HP).toString()).withStyle(ChatFormatting.WHITE))
+                                .append(Component.literal("  Ataque: ").withStyle(ChatFormatting.BLUE).append(Component.literal(pokemon.evs.getOrDefault(Stats.ATTACK).toString()).withStyle(ChatFormatting.WHITE)))
+                                .append(Component.literal("  Defensa: ").withStyle(ChatFormatting.GRAY).append(Component.literal(pokemon.evs.getOrDefault(Stats.DEFENCE).toString()).withStyle(ChatFormatting.WHITE))),
+                        Component.literal("  Ataque Especial: ").withStyle(ChatFormatting.AQUA).append(Component.literal(pokemon.evs.getOrDefault(Stats.SPECIAL_ATTACK).toString()).withStyle(ChatFormatting.WHITE))
+                                .append(Component.literal("  Defensa Especial: ").withStyle(ChatFormatting.YELLOW).append(Component.literal(pokemon.evs.getOrDefault(Stats.SPECIAL_DEFENCE).toString()).withStyle(ChatFormatting.WHITE)))
+                                .append(Component.literal("  Velocidad: ").withStyle(ChatFormatting.GREEN).append(Component.literal(pokemon.evs.getOrDefault(Stats.SPEED).toString()).withStyle(ChatFormatting.WHITE))),
+                        Component.literal("Movimientos: ").withStyle(ChatFormatting.DARK_GREEN),
                         Component.literal(" ").append(Component.literal(moveOne).withStyle(ChatFormatting.WHITE)),
                         Component.literal(" ").append(Component.literal(moveTwo).withStyle(ChatFormatting.WHITE)),
                         Component.literal(" ").append(Component.literal(moveThree).withStyle(ChatFormatting.WHITE)),
                         Component.literal(" ").append(Component.literal(moveFour).withStyle(ChatFormatting.WHITE)),
-                        Component.literal("Form: ").withStyle(ChatFormatting.GOLD).append(pokemon.form.name)
+                        Component.literal("Forma: ").withStyle(ChatFormatting.GOLD).append(pokemon.form.name)
                 ))
                 .setCustomName(
                         if (pokemon.shiny) pokemon.species.translatedName.copy().withStyle(ChatFormatting.GRAY).append(Component.literal(" ★").withStyle(ChatFormatting.GOLD)) else pokemon.species.translatedName.copy().withStyle(ChatFormatting.GRAY)

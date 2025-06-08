@@ -6,9 +6,14 @@ import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import com.mojang.brigadier.CommandDispatcher
 import me.sreeraj.pokemontoitem.commands.ItemToPoke
+import me.sreeraj.pokemontoitem.commands.LyxMonCommand
 import me.sreeraj.pokemontoitem.commands.PokeToItem
+import me.sreeraj.pokemontoitem.commands.ScoreboardCommand
 import me.sreeraj.pokemontoitem.config.PokemonToItemConfig
+import me.sreeraj.pokemontoitem.events.PokemonBattleEventHandler
+import me.sreeraj.pokemontoitem.events.PokemonCaptureEventHandler
 import me.sreeraj.pokemontoitem.permissions.PokemonToItemPermissions
+import me.sreeraj.pokemontoitem.util.PlayerDataManager
 import net.minecraft.commands.CommandSourceStack
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
@@ -27,12 +32,18 @@ object PokemonToItem {
         getLogger().info("PokemonToItem - Initialized")
         loadConfig() // must load before permissions so perms use default permission level.
 
-
         this.permissions = PokemonToItemPermissions()
+        
+        // Registrar eventos
+        PokemonCaptureEventHandler.register()
+        PokemonBattleEventHandler.register()
+        getLogger().info("Eventos de captura y batalla de Pokémon registrados")
     }
 
     fun onShutdown() {
         System.out.println("PokemonToItem - Shutting Down")
+        PlayerDataManager.saveAllPlayerData()
+        getLogger().info("Datos de jugadores guardados.")
     }
 
     fun getLogger(): Logger {
@@ -74,7 +85,7 @@ object PokemonToItem {
 
                 fileReader.close()
             } catch (e: Exception) {
-                System.err.println("[PokemonToItem] Failed to load the config! Using default config as fallback")
+                System.err.println("[LyxMon] Fallo al cargar la configuración! Usando la configuración por defecto como fallback")
                 e.printStackTrace()
                 config = PokemonToItemConfig()
             }
@@ -86,13 +97,13 @@ object PokemonToItem {
 
     private fun mergeConfigs(defaultConfig: JsonObject, fileConfig: JsonObject): JsonElement {
         // For every entry in the default config, check if it exists in the file config
-        getLogger().info("Checking for config merge.")
+        getLogger().info("Buscando merge de configuración.")
         var merged = false
         for (key in defaultConfig.keySet()) {
             if (!fileConfig.has(key)) {
                 // If the file config does not have the key, add it from the default config
                 fileConfig.add(key, defaultConfig.get(key))
-                getLogger().info("[PokemonToItem] $key not found in file config, adding from default.")
+                getLogger().info("[LyxMon] $key no encontrado en la configuración, agregando desde la configuración por defecto.")
                 merged = true
             } else {
                 // If it's a nested object, recursively merge it
@@ -102,7 +113,7 @@ object PokemonToItem {
             }
         }
         if (merged) {
-            getLogger().info("[PokemonToItem] Successfully merged config.")
+            getLogger().info("[LyxMon] Configuración fusionada correctamente.")
         }
         return fileConfig
     }
@@ -117,15 +128,22 @@ object PokemonToItem {
             fileWriter.flush()
             fileWriter.close()
         } catch (e: java.lang.Exception) {
-            System.err.println("[PokemonToItem] Failed to save config")
+            System.err.println("[LyxMon] Fallo al guardar la configuración")
             e.printStackTrace()
         }
     }
 
+    fun reloadConfig() {
+        loadConfig()
+        getLogger().info("Configuración recargada exitosamente")
+    }
+
     fun registerCommands(dispatcher: CommandDispatcher<CommandSourceStack>) {
-        getLogger().info("PokemonToItem registerCommands")
+        getLogger().info("LyxMon registerCommands")
         PokeToItem().register(dispatcher)
         ItemToPoke().register(dispatcher)
+        LyxMonCommand().register(dispatcher)
+        ScoreboardCommand.register(dispatcher)
     }
 
 }

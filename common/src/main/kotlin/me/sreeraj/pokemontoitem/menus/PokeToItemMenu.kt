@@ -71,7 +71,7 @@ class PokeToItemMenu : MenuProvider {
                 container.setItem(slotIndex, finalItem)
             } else {
                 val emptyItem = ItemBuilder(Items.RED_STAINED_GLASS_PANE)
-                    .setCustomName(Component.literal("Empty").withStyle { it.withColor(ChatFormatting.GRAY) })
+                    .setCustomName(Component.literal("Vacío").withStyle { it.withColor(ChatFormatting.GRAY) })
                     .build()
 
                 container.setItem(slotIndex, emptyItem)
@@ -132,6 +132,6 @@ class PokeToItemMenu : MenuProvider {
     }
 
     override fun getDisplayName(): Component {
-        return Component.literal("${playerToView?.name!!.string} Party")
+        return Component.literal("Equipo de ${playerToView?.name!!.string}")
     }
 }
