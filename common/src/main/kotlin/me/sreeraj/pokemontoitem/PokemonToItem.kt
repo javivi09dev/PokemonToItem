@@ -96,12 +96,10 @@ object PokemonToItem {
     }
 
     private fun mergeConfigs(defaultConfig: JsonObject, fileConfig: JsonObject): JsonElement {
-        // For every entry in the default config, check if it exists in the file config
         getLogger().info("Buscando merge de configuración.")
         var merged = false
         for (key in defaultConfig.keySet()) {
             if (!fileConfig.has(key)) {
-                // If the file config does not have the key, add it from the default config
                 fileConfig.add(key, defaultConfig.get(key))
                 getLogger().info("[LyxMon] $key no encontrado en la configuración, agregando desde la configuración por defecto.")
                 merged = true

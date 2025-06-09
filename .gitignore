@@ -18,3 +18,5 @@ neoforge/run
 
 gradle.properties
 .vscode/
+
+secring.gpg

@@ -22,7 +22,7 @@ class PokemonToItemPermissions {
         this.LYXMON_REMOVE_PERMISSION = PokemonToItemPermission("command.lyxmon.remove", toPermLevel(PokemonToItem.config.permissionLevels.COMMAND_LYXMON_REMOVE_PERMISSION_LEVEL))
         this.LYXSCOREBOARD_RELOAD_PERMISSION = PokemonToItemPermission("command.lyxscoreboard.reload", toPermLevel(PokemonToItem.config.permissionLevels.COMMAND_LYXSCOREBOARD_RELOAD_PERMISSION_LEVEL))
         this.LYXSCOREBOARD_MANAGE_OTHERS_PERMISSION = PokemonToItemPermission("command.lyxscoreboard.manage_others", toPermLevel(PokemonToItem.config.permissionLevels.COMMAND_LYXSCOREBOARD_MANAGE_OTHERS_PERMISSION_LEVEL))
-    }
+         }
 
     fun toPermLevel(permLevel: Int): PermissionLevel {
         for (value in PermissionLevel.entries) {

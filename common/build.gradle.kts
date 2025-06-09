@@ -72,6 +72,8 @@ publishing {
     }
     
     repositories {
+        // Comentado repositorio remoto para usar solo Maven Local
+        /*
         maven {
             name = "sonatype"
             url = uri("https://central.sonatype.com/api/v1/publisher/deployments/upload/")
@@ -80,9 +82,14 @@ publishing {
                 password = project.findProperty("sonatype.password") as String? ?: ""
             }
         }
+        */
+        
+        // Repositorio local para desarrollo y testing
+        mavenLocal()
     }
 }
 
-signing {
-    sign(publishing.publications["maven"])
-}
+// Firma deshabilitada para desarrollo local
+// signing {
+//     sign(publishing.publications["maven"])
+// }
