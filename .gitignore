@@ -20,3 +20,7 @@ gradle.properties
 .vscode/
 
 secring.gpg
+
+
+NPC_EDITOR_README.md
+DIALOGUE_EDITOR_README.md

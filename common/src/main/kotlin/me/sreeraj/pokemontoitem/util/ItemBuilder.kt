@@ -13,7 +13,10 @@ import java.util.*
 import java.util.stream.Collectors
 import java.util.stream.Stream
 
-
+/**
+ * Builder para crear ItemStacks con NBT y lore personalizado
+ * Útil para crear elementos de interfaz en menús
+ */
 class ItemBuilder {
     var stack: ItemStack? = null
 
